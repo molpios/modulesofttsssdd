@@ -3,11 +3,25 @@
 }
 
 .contact-hero {
-  background: linear-gradient(135deg, var(--bg-dark) 0%, var(--primary-dark-gray) 50%, var(--secondary-dark) 100%);
+  background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 50%, #0f1535 100%);
   color: var(--text-light);
   padding: 5rem 0;
   text-align: center;
   position: relative;
+  overflow: hidden;
+}
+
+.contact-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    radial-gradient(ellipse at 30% 30%, rgba(0, 245, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 70%, rgba(244, 114, 182, 0.1) 0%, transparent 50%);
+  animation: heroBackground 15s ease-in-out infinite;
 }
 
 .contact-hero::after {
@@ -17,13 +31,27 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.08) 0%, transparent 60%);
   pointer-events: none;
 }
 
 .contact-content {
   padding: 5rem 0;
-  background: var(--bg-dark-gray);
+  background: linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 50%, #0f0f1a 100%);
+  position: relative;
+}
+
+.contact-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(ellipse at 20% 50%, rgba(0, 245, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 50%, rgba(168, 85, 247, 0.05) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .contact-wrapper {
@@ -32,20 +60,38 @@
   gap: 3rem;
   max-width: 1000px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .contact-info {
-  background: var(--secondary-dark);
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.9) 0%, rgba(15, 15, 35, 0.9) 100%);
   padding: 2.5rem;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 255, 255, 0.1);
-  border: 1px solid rgba(0, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   height: fit-content;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-info::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #00f5ff, #a855f7, #f472b6);
 }
 
 .contact-info h2 {
   font-size: 2rem;
-  color: var(--accent-cyan);
+  background: linear-gradient(135deg, #00f5ff 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 1rem;
   font-weight: 700;
 }
@@ -66,19 +112,36 @@
   display: flex;
   gap: 1rem;
   align-items: flex-start;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  transition: all 0.3s ease;
 }
+
+.contact-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateX(5px);
+}
+
+.contact-item:nth-child(1):hover { box-shadow: 0 0 20px rgba(244, 63, 94, 0.2); }
+.contact-item:nth-child(2):hover { box-shadow: 0 0 20px rgba(0, 245, 255, 0.2); }
+.contact-item:nth-child(3):hover { box-shadow: 0 0 20px rgba(168, 85, 247, 0.2); }
 
 .contact-icon {
   font-size: 1.5rem;
   flex-shrink: 0;
+  filter: drop-shadow(0 0 10px rgba(0, 245, 255, 0.5));
 }
 
 .contact-item h4 {
   font-size: 1rem;
-  color: var(--accent-cyan);
   margin-bottom: 0.25rem;
-  font-weight: 600;
+  font-weight: 700;
 }
+
+.contact-item:nth-child(1) h4 { color: #f43f5e; }
+.contact-item:nth-child(2) h4 { color: #00f5ff; }
+.contact-item:nth-child(3) h4 { color: #a855f7; }
 
 .contact-item p {
   color: var(--text-gray);
@@ -86,11 +149,24 @@
 }
 
 .contact-form {
-  background: var(--secondary-dark);
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.9) 0%, rgba(15, 15, 35, 0.9) 100%);
   padding: 2.5rem;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 255, 255, 0.1);
-  border: 1px solid rgba(0, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #f43f5e, #fb923c, #fbbf24, #34d399);
 }
 
 .form-group {
@@ -100,28 +176,31 @@
 .form-group label {
   display: block;
   margin-bottom: 0.5rem;
-  color: var(--accent-cyan);
-  font-weight: 600;
+  background: linear-gradient(135deg, #00f5ff, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 0.875rem;
-  border: 2px solid rgba(0, 255, 255, 0.2);
-  border-radius: 8px;
+  padding: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
   font-size: 1rem;
   transition: all 0.3s ease;
   font-family: inherit;
-  background: var(--primary-dark-gray);
+  background: rgba(15, 15, 30, 0.8);
   color: var(--text-light);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: var(--accent-cyan);
-  box-shadow: 0 0 0 3px rgba(0, 255, 255, 0.2);
+  border-color: #a855f7;
+  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.2), 0 0 20px rgba(168, 85, 247, 0.1);
 }
 
 .form-group textarea {
@@ -131,18 +210,31 @@
 
 .submit-button {
   width: 100%;
-  background: linear-gradient(135deg, var(--color-emerald-400), var(--accent-cyan), var(--accent-purple));
-  background-size: 200% auto;
+  background: linear-gradient(135deg, #f43f5e 0%, #fb923c 25%, #fbbf24 50%, #34d399 75%, #00f5ff 100%);
+  background-size: 300% auto;
   color: white;
   padding: 1rem 2rem;
   border-radius: 50px;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.1rem;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: 0 4px 20px rgba(52, 211, 153, 0.5), 0 0 40px rgba(0, 255, 255, 0.3);
-  border: 2px solid rgba(52, 211, 153, 0.5);
+  box-shadow: 
+    0 4px 20px rgba(244, 63, 94, 0.4), 
+    0 0 40px rgba(168, 85, 247, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.2);
   position: relative;
   overflow: hidden;
+  animation: buttonRainbow 4s linear infinite;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes buttonRainbow {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 300% center;
+  }
 }
 
 .submit-button::before {
@@ -152,7 +244,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
   transition: left 0.5s ease;
 }
 
@@ -161,10 +253,12 @@
 }
 
 .submit-button:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 8px 30px rgba(52, 211, 153, 0.7), 0 0 60px rgba(0, 255, 255, 0.5);
-  background-position: right center;
-  border-color: var(--color-emerald-400);
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 
+    0 8px 30px rgba(244, 63, 94, 0.5), 
+    0 0 60px rgba(168, 85, 247, 0.4),
+    0 0 80px rgba(0, 245, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 @media (max-width: 968px) {
